@@ -15,8 +15,9 @@ local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/nxyystore
 
 local window = lib:MakeWindow({
 	Name="Ranxware | UTG V3.1",
-	SaveConfig=false,
-	IntroEnabled=true,
+	SaveConfig=true,
+	ConfigFolder="skidhubbb"
+	IntroEnabled=false,
 	IntroText="Ranxware V2"
 })
 
