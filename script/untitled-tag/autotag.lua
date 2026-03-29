@@ -1,7 +1,7 @@
 -- Version: 3.1
 
-
 -- no annoying errors :|
+
 for _,__error in next,getconnections(game:GetService("ScriptContext").Error) do
 	__error:Disable()
 end
@@ -12,6 +12,7 @@ local char = you.Character
 local humanoid = char:FindFirstChildOfClass("Humanoid")
 
 local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/nxyystore/fwgrewf/main/ui/orion'))()
+
 local window = lib:MakeWindow({
 	Name="Ranxware | UTG V3.1",
 	SaveConfig=false,
@@ -33,6 +34,7 @@ local visuals = experi:AddSection({Name="Visuals [BETA]"})
 
 local hbcon = false
 local hbsize = 2
+
 hitboxes:AddToggle({
 	Name="Hitbox Extend",
 	Default=false,
@@ -44,6 +46,7 @@ hitboxes:AddToggle({
 		end
 	end,
 })
+
 hitboxes:AddSlider({
 	Name="Hitbox Size",
 	Min=2,Max=15,
@@ -54,9 +57,11 @@ hitboxes:AddSlider({
 		hbsize = value
 	end,
 })
+
 local atcon = false
 local at_teamcheck = false
 local at_runnercheck = true
+
 autotag:AddToggle({
 	Name="Autotag",
 	Default=false,
@@ -68,6 +73,7 @@ autotag:AddToggle({
 		end
 	end,
 })
+
 autotag:AddToggle({
 	Name="Team Check",
 	Default=false,
@@ -75,6 +81,7 @@ autotag:AddToggle({
 		at_teamcheck = value
 	end,
 })
+
 autotag:AddToggle({
 	Name="Runner/Alive Check",
 	Default=true,
@@ -86,6 +93,7 @@ autotag:AddToggle({
 local wsval,jpval = 30,32
 local wscon,jpcon = false,false
 local changeWs,changeJp
+
 _humanoid:AddToggle({
 	Name="Walkspeed",
 	Default=false,
@@ -101,6 +109,7 @@ _humanoid:AddToggle({
 		end
 	end,
 })
+
 _humanoid:AddSlider({
 	Name="Walkspeed Value",
 	Min=26,Max=65,
@@ -110,6 +119,7 @@ _humanoid:AddSlider({
 		wsval = value
 	end,
 })
+
 _humanoid:AddToggle({
 	Name="Jumppower",
 	Default=false,
@@ -126,6 +136,7 @@ _humanoid:AddToggle({
 		end
 	end,
 })
+
 _humanoid:AddSlider({
 	Name="Jumppower Value",
 	Min=30,Max=90,
@@ -135,9 +146,11 @@ _humanoid:AddSlider({
 		jpval = value
 	end,
 })
+
 local fclimbcon,noclipcon = false,false
 local fmovecon = false
 local infj = false
+
 physical:AddToggle({
 	Name="Infinite Jump",
 	Default=false,
@@ -149,6 +162,7 @@ physical:AddToggle({
 		end
 	end,
 })
+
 physical:AddToggle({
 	Name="Fast Climb",
 	Default=false,
@@ -160,6 +174,7 @@ physical:AddToggle({
 		end
 	end,
 })
+
 physical:AddToggle({
 	Name="Free Move",
 	Default=false,
@@ -171,6 +186,7 @@ physical:AddToggle({
 		end
 	end,
 })
+
 physical:AddToggle({
 	Name="Noclip",
 	Default=false,
@@ -184,6 +200,7 @@ physical:AddToggle({
 })
 
 local atcoin = false
+
 exp_main:AddToggle({
 	Name="Autocollect Coins [ALIVE ONLY!]",
 	Default=false,
@@ -195,6 +212,7 @@ exp_main:AddToggle({
 		end
 	end,
 })
+
 local esp = false
 local boxes = false
 local chams = false
@@ -204,6 +222,7 @@ local roles = false
 local teamcheck = true
 local tracerorigin = "Bottom"
 local rainbow_ = false
+
 visuals:AddToggle({
 	Name="Enable ESP",
 	Default=false,
@@ -215,6 +234,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Box ESP",
 	Default=false,
@@ -226,6 +246,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Cham ESP",
 	Default=false,
@@ -237,6 +258,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Tracer ESP",
 	Default=false,
@@ -248,6 +270,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Name ESP",
 	Default=false,
@@ -259,6 +282,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Role ESP",
 	Default=false,
@@ -270,6 +294,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddDropdown({
 	Name="Tracer Origin",
 	Options={"Bottom","Middle","Top","Mouse"},
@@ -278,6 +303,7 @@ visuals:AddDropdown({
 		tracerorigin = option
 	end,
 })
+
 visuals:AddToggle({
 	Name="Team Check",
 	Default=true,
@@ -289,6 +315,7 @@ visuals:AddToggle({
 		end
 	end,
 })
+
 visuals:AddToggle({
 	Name="Rainbow ESP",
 	Default=false,
@@ -302,6 +329,7 @@ visuals:AddToggle({
 })
 
 local fbcon = false
+
 misc:AddToggle({
 	Name="Fullbright",
 	Default=false,
@@ -313,7 +341,9 @@ misc:AddToggle({
 		end
 	end,
 })
+
 local acccon = false
+
 misc:AddToggle({
 	Name="Anti-Color Change",
 	Default=false,
@@ -337,58 +367,76 @@ local wst__;wst__ = connect(humanoid:GetPropertyChangedSignal("WalkSpeed"),funct
 		changeWs()
 	end
 end)
+
 local jpt__;jpt__ = connect(humanoid:GetPropertyChangedSignal("JumpPower"),function()
 	if jpcon then
 		changeJp()
 	end
 end)
+
 local fct__;fct__ = connect(humanoid.Climbing,function()
 	if fclimbcon then
 		humanoid.Jump = true
 	end
 end)
+
 -- connection, in case if you somehow get voided (with noclip/autocollect coins)...
 connect(you.CharacterAdded,function(_nchar)
 	char = _nchar
 	humanoid = char:FindFirstChildOfClass("Humanoid")
+
 	wst__ = connect(humanoid:GetPropertyChangedSignal("WalkSpeed"),function()
 		if wscon then
 			changeWs()
 		end
 	end)
+
 	jpt__ = connect(humanoid:GetPropertyChangedSignal("JumpPower"),function()
 		if jpcon then
 			changeJp()
 		end
 	end)
+
 	fct__ = connect(humanoid.Climbing,function()
 		if fclimbcon then
 			humanoid.Jump = true
 		end
 	end)
 end)
+
 connect(game:GetService("RunService").Stepped,function()
 	if hbcon then
 		for _,i in next,game.Players:GetPlayers() do
 			if i ~= you then
-				local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
-				if root then
-					root.Size = Vector3.new(hbsize,hbsize,hbsize)
-					root.Transparency = .5
+				if i.Character then
+					local hum = i.Character:FindFirstChildOfClass("Humanoid")
+					if hum then
+						local root = hum.RootPart
+						if root then
+							root.Size = Vector3.new(hbsize,hbsize,hbsize)
+							root.Transparency = .5
+						end
+					end
 				end
 			end
 		end
 	else
 		for _,i in next,game.Players:GetPlayers() do
 			if i ~= you then
-				local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
-				if root then
-					root.Size = Vector3.new(2,2,1)
-					root.Transparency = 1
+				if i.Character then
+					local hum = i.Character:FindFirstChildOfClass("Humanoid")
+					if hum then
+						local root = hum.RootPart
+						if root then
+							root.Size = Vector3.new(2,2,1)
+							root.Transparency = 1
+						end
+					end
 				end
 			end
 		end
 	end
+
 	if noclipcon then
 		for _,p in next,char:GetDescendants() do
 			if p:IsA("BasePart") then
@@ -396,6 +444,7 @@ connect(game:GetService("RunService").Stepped,function()
 			end
 		end
 	end
+
 	if fbcon then
 		lighting.Brightness = 2
 		lighting.ClockTime = 14
@@ -409,6 +458,7 @@ connect(game:GetService("RunService").Stepped,function()
 			end
 		end
 	end
+
 	if acccon then
 		for _,i in next,lighting:GetChildren() do
 			if i:IsA("ColorCorrectionEffect") then
@@ -418,6 +468,7 @@ connect(game:GetService("RunService").Stepped,function()
 			end
 		end
 	end
+
 	if atcoin then
 		if you.PlayerRole.Value ~= "Dead" then -- alive check policy
 			for _,v in pairs(workspace:GetDescendants()) do
@@ -427,59 +478,77 @@ connect(game:GetService("RunService").Stepped,function()
 			end
 		end
 	end
+
 	if fmovecon then
 		char.LockMoveVector.Value = false
 	end
 end)
+
 connect(game:GetService("UserInputService").JumpRequest,function()
 	if infj then
 		humanoid.RootPart.Velocity = Vector3.new(humanoid.RootPart.Velocity.X,humanoid.JumpPower or humanoid.JumpHeight,humanoid.RootPart.Velocity.Z)
 	end
 end)
+
 connect(game:GetService("RunService").Heartbeat,function()
 	local youroot = humanoid.RootPart
+
 	if atcon then
 		for _,i in next,game.Players:GetPlayers() do
 			if i ~= you then
-				if at_runnercheck then
-					if you.PlayerRole.Value ~= "Runner" and you.PlayerRole.Value ~= "Dead" then
+				if i.Character then
+					if at_runnercheck then
+						if you.PlayerRole.Value ~= "Runner" and you.PlayerRole.Value ~= "Dead" then
+							if at_teamcheck then
+								if i.PlayerRole.Value ~= you.PlayerRole.Value then
+									local hum = i.Character:FindFirstChildOfClass("Humanoid")
+									if hum then
+										local root = hum.RootPart
+										if root then
+											local distance = (root.Position-youroot.Position).Magnitude
+											if distance <= root.Size.Magnitude then
+												mouse1click()
+											end
+										end
+									end
+								end
+							else
+								local hum = i.Character:FindFirstChildOfClass("Humanoid")
+								if hum then
+									local root = hum.RootPart
+									if root then
+										local distance = (root.Position-youroot.Position).Magnitude
+										if distance <= root.Size.Magnitude then
+											mouse1click()
+										end
+									end
+								end
+							end
+						end
+					else
 						if at_teamcheck then
 							if i.PlayerRole.Value ~= you.PlayerRole.Value then
-								local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
+								local hum = i.Character:FindFirstChildOfClass("Humanoid")
+								if hum then
+									local root = hum.RootPart
+									if root then
+										local distance = (root.Position-youroot.Position).Magnitude
+										if distance <= root.Size.Magnitude then
+											mouse1click()
+										end
+									end
+								end
+							end
+						else
+							local hum = i.Character:FindFirstChildOfClass("Humanoid")
+							if hum then
+								local root = hum.RootPart
 								if root then
 									local distance = (root.Position-youroot.Position).Magnitude
 									if distance <= root.Size.Magnitude then
 										mouse1click()
 									end
 								end
-							end
-						else
-							local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
-							if root then
-								local distance = (root.Position-youroot.Position).Magnitude
-								if distance <= root.Size.Magnitude then
-									mouse1click()
-								end
-							end
-						end
-					end
-				else
-					if at_teamcheck then
-						if i.PlayerRole.Value ~= you.PlayerRole.Value then
-							local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
-							if root then
-								local distance = (root.Position-youroot.Position).Magnitude
-								if distance <= root.Size.Magnitude then
-									mouse1click()
-								end
-							end
-						end
-					else
-						local root = i.Character:FindFirstChildOfClass("Humanoid").RootPart
-						if root then
-							local distance = (root.Position-youroot.Position).Magnitude
-							if distance <= root.Size.Magnitude then
-								mouse1click()
 							end
 						end
 					end
@@ -488,6 +557,7 @@ connect(game:GetService("RunService").Heartbeat,function()
 		end
 	end
 end)
+
 local function addEsp(target)
 	local function addBox()
 		local box = Drawing.new("Square")
@@ -497,12 +567,14 @@ local function addEsp(target)
 		box.Transparency = 1
 		return box
 	end
+
 	local function addLine()
 		local line = Drawing.new("Line")
 		line.Color = Color3.new(1,1,1)
 		line.Thickness = 0.5
 		return line
 	end
+
 	local function addText()
 		local text = Drawing.new("Text")
 		text.Color = Color3.new(1,1,1)
@@ -511,6 +583,7 @@ local function addEsp(target)
 		text.Font = 3
 		return text
 	end
+
 	local function addCham()
 		local cham = Instance.new("BoxHandleAdornment",gethui() or game.CoreGui)
 		cham.Color3 = Color3.new(1,1,1)
@@ -519,12 +592,15 @@ local function addEsp(target)
 		cham.ZIndex = 2
 		return cham
 	end
+
 	local function alive(target)
 		return (target.PlayerRole.Value ~= "Dead")
 	end
+
 	local function isSameTeam(target)
 		return (target.PlayerRole.Value == you.PlayerRole.Value)
 	end
+
 	local box = addBox()
 	local tracer = addLine()
 	local name = addText()
@@ -536,6 +612,7 @@ local function addEsp(target)
 	local rarm = addCham()
 	local lleg = addCham()
 	local rleg = addCham()
+
 	connect(game.Players.PlayerRemoving,function(player)
 		if player == target then
 			box:Destroy()
@@ -551,12 +628,32 @@ local function addEsp(target)
 			rleg:Destroy()
 		end
 	end)
+
 	connect(game:GetService("RunService").Stepped,function()
 		if esp then
-			if alive(target) then
-				local mainpos,vis = workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChildOfClass("Humanoid").RootPart.Position)
-				local miscpos1 = workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChild("Head").Position+Vector3.new(0,0.5,0))
-				local miscpos2 = workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChildOfClass("Humanoid").RootPart.Position-Vector3.new(0,4,0))
+			if target.Character and alive(target) then
+				local hum = target.Character:FindFirstChildOfClass("Humanoid")
+				if not hum or not hum.RootPart then
+					box.Visible = false
+					tracer.Visible = false
+					name.Visible = false
+					role.Visible = false
+					text.Visible = false
+					head.Visible = false
+					torso.Visible = false
+					larm.Visible = false
+					rarm.Visible = false
+					lleg.Visible = false
+					rleg.Visible = false
+					return
+				end
+
+				local mainpos,vis = workspace.CurrentCamera:WorldToViewportPoint(hum.RootPart.Position)
+				local headPart = target.Character:FindFirstChild("Head")
+				if not headPart then return end
+				local miscpos1 = workspace.CurrentCamera:WorldToViewportPoint(headPart.Position+Vector3.new(0,0.5,0))
+				local miscpos2 = workspace.CurrentCamera:WorldToViewportPoint(hum.RootPart.Position-Vector3.new(0,4,0))
+
 				if teamcheck then
 					if isSameTeam(target) or target.PlayerRole.Value == "" then
 						box.Visible = false
@@ -567,11 +664,13 @@ local function addEsp(target)
 						head.Visible = false
 						torso.Visible = false
 						larm.Visible = false
-						rarm.Visible = false	
+						rarm.Visible = false
 						lleg.Visible = false
 						rleg.Visible = false
+						return
 					end
 				end
+
 				if rainbow_ then
 					box.Color = Color3.fromHSV(tick()%5/5,1,1)
 					head.Color3 = Color3.fromHSV(tick()%5/5,1,1)
@@ -585,18 +684,22 @@ local function addEsp(target)
 					role.Color = Color3.fromHSV(tick()%5/5,1,1)
 					text.Color = Color3.fromHSV(tick()%5/5,1,1)
 				else
-					box.Color = target.Character:FindFirstChild("Torso").Color
-					head.Color3 = target.Character:FindFirstChild("Torso").Color
-					torso.Color3 = target.Character:FindFirstChild("Torso").Color
-					larm.Color3 = target.Character:FindFirstChild("Torso").Color
-					rarm.Color3 = target.Character:FindFirstChild("Torso").Color
-					lleg.Color3 = target.Character:FindFirstChild("Torso").Color
-					rleg.Color3 = target.Character:FindFirstChild("Torso").Color
-					tracer.Color = target.Character:FindFirstChild("Torso").Color
-					name.Color = target.Character:FindFirstChild("Torso").Color
-					role.Color = target.Character:FindFirstChild("Torso").Color
-					text.Color = target.Character:FindFirstChild("Torso").Color
+					local torsopart = target.Character:FindFirstChild("Torso")
+					if torsopart then
+						box.Color = torsopart.Color
+						head.Color3 = torsopart.Color
+						torso.Color3 = torsopart.Color
+						larm.Color3 = torsopart.Color
+						rarm.Color3 = torsopart.Color
+						lleg.Color3 = torsopart.Color
+						rleg.Color3 = torsopart.Color
+						tracer.Color = torsopart.Color
+						name.Color = torsopart.Color
+						role.Color = torsopart.Color
+						text.Color = torsopart.Color
+					end
 				end
+
 				if boxes then
 					box.Visible = vis
 					box.Size = Vector2.new((2350/mainpos.Z)+2.5,miscpos1.Y-miscpos2.Y)
@@ -604,6 +707,7 @@ local function addEsp(target)
 				else
 					box.Visible = false
 				end
+
 				if chams then
 					head.Visible = true
 					torso.Visible = true
@@ -617,12 +721,12 @@ local function addEsp(target)
 					rarm.Adornee = target.Character:FindFirstChild("Right Arm")
 					lleg.Adornee = target.Character:FindFirstChild("Left Leg")
 					rleg.Adornee = target.Character:FindFirstChild("Right Leg")
-					head.Size = target.Character:FindFirstChild("Head").Size
-					torso.Size = target.Character:FindFirstChild("Torso").Size
-					larm.Size = target.Character:FindFirstChild("Left Arm").Size
-					rarm.Size = target.Character:FindFirstChild("Right Arm").Size
-					lleg.Size = target.Character:FindFirstChild("Left Leg").Size
-					rleg.Size = target.Character:FindFirstChild("Right Leg").Size
+					if head.Adornee then head.Size = head.Adornee.Size end
+					if torso.Adornee then torso.Size = torso.Adornee.Size end
+					if larm.Adornee then larm.Size = larm.Adornee.Size end
+					if rarm.Adornee then rarm.Size = rarm.Adornee.Size end
+					if lleg.Adornee then lleg.Size = lleg.Adornee.Size end
+					if rleg.Adornee then rleg.Size = rleg.Adornee.Size end
 				else
 					head.Visible = false
 					torso.Visible = false
@@ -631,6 +735,7 @@ local function addEsp(target)
 					lleg.Visible = false
 					rleg.Visible = false
 				end
+
 				if tracers then
 					tracer.Visible = vis
 					if tracerorigin == "Top" then
@@ -649,25 +754,28 @@ local function addEsp(target)
 				else
 					tracer.Visible = false
 				end
+
 				if names then
 					name.Visible = vis
-					name.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChild("Head").Position).X,workspace.CurrentCamera:WorldToViewportPoint(target.Character.Head.Position).Y-20)
+					name.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).X,workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).Y-20)
 					name.Text = target.Name
 				else
 					name.Visible = false
 				end
+
 				if roles then
 					role.Visible = vis
-					role.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChild("Head").Position).X,workspace.CurrentCamera:WorldToViewportPoint(target.Character.Head.Position).Y-20)
+					role.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).X,workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).Y-20)
 					role.Text = target.PlayerRole.Value
 				else
 					role.Visible = false
 				end
+
 				if names and roles then
 					name.Visible = false
 					role.Visible = false
 					text.Visible = vis
-					text.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(target.Character:FindFirstChild("Head").Position).X,workspace.CurrentCamera:WorldToViewportPoint(target.Character.Head.Position).Y-20)
+					text.Position = Vector2.new(workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).X,workspace.CurrentCamera:WorldToViewportPoint(headPart.Position).Y-20)
 					text.Text = target.Name.." | "..target.PlayerRole.Value
 				else
 					text.Visible = false
@@ -681,7 +789,7 @@ local function addEsp(target)
 				head.Visible = false
 				torso.Visible = false
 				larm.Visible = false
-				rarm.Visible = false	
+				rarm.Visible = false
 				lleg.Visible = false
 				rleg.Visible = false
 			end
@@ -694,17 +802,19 @@ local function addEsp(target)
 			head.Visible = false
 			torso.Visible = false
 			larm.Visible = false
-			rarm.Visible = false	
+			rarm.Visible = false
 			lleg.Visible = false
 			rleg.Visible = false
 		end
 	end)
 end
+
 for _,i in next,game.Players:GetPlayers() do
 	if i ~= you then
 		addEsp(i)
 	end
 end
+
 connect(game.Players.PlayerAdded,function(i)
 	if i ~= you then
 		addEsp(i)
@@ -714,17 +824,15 @@ end)
 lib:Init()
 
 --[[
-
-~ UPDATE LOGS: ~
-
-* 11/5/22 - First version of UTG script created (the usual stuff...)
-* 11/13/22 - Created coin autocollect module for script
-* 11/14/22 - Second version released (removed the useless authentication system; fixed bugs; added new features)
-* 12/29/22 - 2.5 version released
-* 2/14/23 - closed script... (update for v3 soon.)
-* 2/22/23 - Third version released (revamped features; new ui library [orion]; added esp [experimental])
-* 2/23/23 - [Third version was broken lol] v3.1 (bug fixes)
-* 2/24/23 - Visual updates/fixes; movement fixes; free-move
-* 3/9/23 - Visual fixes; coin-collect alive check policy; replaced anti-highcontrast w/ anti-colorchange [vhs and deepfry not included]
-
+	~ UPDATE LOGS: ~
+	* 11/5/22  - First version of UTG script created (the usual stuff...)
+	* 11/13/22 - Created coin autocollect module for script
+	* 11/14/22 - Second version released (removed the useless authentication system; fixed bugs; added new features)
+	* 12/29/22 - 2.5 version released
+	* 2/14/23  - closed script... (update for v3 soon.)
+	* 2/22/23  - Third version released (revamped features; new ui library [orion]; added esp [experimental])
+	* 2/23/23  - [Third version was broken lol] v3.1 (bug fixes)
+	* 2/24/23  - Visual updates/fixes; movement fixes; free-move
+	* 3/9/23   - Visual fixes; coin-collect alive check policy; replaced anti-highcontrast w/ anti-colorchange [vhs and deepfry not included]
+	* Fixed    - Nil character checks added throughout (hitboxes, autotag, ESP)
 ]]
