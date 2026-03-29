@@ -1,10 +1,9 @@
 -- Version: 3.1
 
 -- no annoying errors :|
-
-for _,__error in next,getconnections(game:GetService("ScriptContext").Error) do
-	__error:Disable()
-end
+--for _,__error in next,getconnections(game:GetService("ScriptContext").Error) do
+--	__error:Disable()
+-- end
 
 local you = game.Players.LocalPlayer
 local lighting = game.Lighting
@@ -15,7 +14,7 @@ local lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/nxyystore
 
 local window = lib:MakeWindow({
 	Name="Ranxware | UTG V3.1",
-	SaveConfig=true,
+	SaveConfig=false,
 	ConfigFolder="skidhubbb"
 	IntroEnabled=false,
 	IntroText="Ranxware V2"
