@@ -471,9 +471,24 @@ connect(game:GetService("RunService").Stepped,function()
 
 	if atcoin then
 		if you.PlayerRole.Value ~= "Dead" then -- alive check policy
-			for _,v in pairs(workspace:GetDescendants()) do
-				if v:IsA("MeshPart") and v.MeshId == "rbxassetid://8483581926" then
-					humanoid.RootPart.CFrame = v.CFrame
+				local root = humanoid.RootPart
+				if root then
+					local closestCoin = nil
+					local closestDist = math.huge
+
+					for _, v in pairs(workspace:GetDescendants()) do
+						if v:IsA("MeshPart") and v.MeshId == "rbxassetid://8483581926" then
+							local dist = (v.Position - root.Position).Magnitude
+							if dist < closestDist then
+								closestDist = dist
+								closestCoin = v
+							end
+						end
+					end
+
+					if closestCoin and closestDist <= 15 then
+						humanoid.RootPart.CFrame = closestCoin.CFrame
+					end
 				end
 			end
 		end
