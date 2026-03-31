@@ -55,7 +55,6 @@ local Window = Rayfield:CreateWindow({
     LoadingSubtitle = "Loading scripts for this game...",
     ShowText = "Hub",
     Theme = "Default",
-    ToggleUIKeybind = "RightShift",
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false,
     ConfigurationSaving = {
